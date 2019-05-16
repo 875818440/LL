@@ -1,0 +1,48 @@
+spring:
+  profiles:
+    active: dev
+  banner:
+    charset: utf-8
+    location: classpath:banner.txt
+#    image:
+#      location: classpath:banner.txt
+#      invert: false
+
+  thymeleaf:
+    prefix: classpath:/templates/
+    check-template-location: true
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+
+
+server:
+  tomcat:
+    basedir: my-tomcat
+    accesslog:
+      pattern: 'ip: %A, response code: %s, time: %t'
+      enabled: true
+      directory: LL-logs
+      buffered: false
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        security: DEBUG
+        web: ERROR
+      hibernate: DEBUG
+      apache:
+        commons:
+          dbcp2: DEBUG
+    com:
+      concretepage: DEBUG
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{15} - %msg%n'
+  path: concretepage/logs
+  file: mylogfile.log
+
